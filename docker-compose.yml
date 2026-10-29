@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: vidyapath_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: vidyapath
+      MYSQL_USER: vidyapath
+      MYSQL_PASSWORD: vidyapath_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - vidyapath_mysql_data:/var/lib/mysql
+
+volumes:
+  vidyapath_mysql_data:
